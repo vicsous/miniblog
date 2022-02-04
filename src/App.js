@@ -12,8 +12,11 @@ import Profile from './pages/Profile.js';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 
+import { AuthProvider } from './contexts/AuthContext';
+
 export default function App() {
   return (
+    <AuthProvider>
     <Router>
       <Header />
       <Switch>
@@ -52,5 +55,6 @@ export default function App() {
       </Switch>
       <Footer />
     </Router>
+    </AuthProvider>
   );
 }

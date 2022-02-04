@@ -2,6 +2,7 @@ import '../styles/pages/Login.css';
 import { Link } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useAuth } from '../contexts/AuthContext';
 
 const LoginSchema = Yup.object().shape({
     password: Yup.string()
@@ -21,7 +22,9 @@ const LoginSchema = Yup.object().shape({
         .required('Required')
   });
  
-export default function Register () {    
+export default function Register () {  
+    const { signup } = useAuth();
+
     return (
         <div className="login">
             <Formik
@@ -29,6 +32,7 @@ export default function Register () {
                 validationSchema={LoginSchema}
                 onSubmit={(values, { setSubmitting }) => {
                 setTimeout(() => {
+                    signup(values);
                     alert(JSON.stringify(values, null, 2));
                     setSubmitting(false);
                 }, 400);
