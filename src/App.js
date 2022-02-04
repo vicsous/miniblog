@@ -1,25 +1,56 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-function App() {
+import Home from './pages/Home.js';
+import Login from './pages/Login.js';
+import Register from './pages/Register.js';
+import Friends from './pages/Friends.js';
+import Search from './pages/Search.js';
+import Settings from './pages/Settings.js';
+import Profile from './pages/Profile.js';
+
+import Header from './components/Header.js';
+import Footer from './components/Footer.js';
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Route exact path='/'>
+          <Home />  
+        </Route>
+
+        <Route path='/login'>
+          <Login />  
+        </Route>
+
+        <Route path='/register'>
+          <Register />  
+        </Route>
+
+        <Route path='/friends'>
+          <Friends />  
+        </Route>
+
+        <Route path='/search'>
+          <Search />  
+        </Route>
+
+        <Route path='/settings'>
+          <Settings />
+        </Route>
+
+        <Route path='/profile'>
+          <Profile />
+        </Route>
+        
+        <Route path="*">
+          <h1>Page not found</h1>
+        </Route>
+
+      </Switch>
+      <Footer />
+    </Router>
   );
 }
-
-export default App;

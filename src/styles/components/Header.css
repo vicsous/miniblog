@@ -1,0 +1,38 @@
+.menu {
+    position: absolute;
+    @apply p-4 flex flex-col space-y-4 bg-black w-full text-white bg-gradient-to-r from-black to-gray-900
+    border-b border-gray-600
+    h-full
+}
+
+.item {
+    @apply flex items-center px-4 to-gray-900 w-full rounded-lg py-1 hover:bg-gray-500
+}
+
+.item > p {
+    @apply pl-2
+} 
+
+.info {
+    @apply flex flex-col justify-between items-start
+}
+
+.avatar {
+    @apply bg-white rounded-full w-16 h-16 bg-blue-700
+}
+
+.name, .username {
+    @apply text-xl
+}
+
+.button {
+    @apply flex items-center font-extrabold text-xl
+}
+
+.info {
+    @apply ml-4
+}
+
+.newPost {
+    @apply flex px-4 bg-sky-600 w-full rounded-lg py-2 bg-gradient-to-r from-cyan-500 to-blue-500
+}
