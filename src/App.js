@@ -11,18 +11,18 @@ import Profile from './pages/Profile.js';
 
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
-
+import PrivateRoute from './components/PrivateRoute';
 import { AuthProvider } from './contexts/AuthContext';
 
 export default function App() {
   return (
-    <AuthProvider>
     <Router>
+      <AuthProvider>
       <Header />
-      <Switch>
-        <Route exact path='/'>
-          <Home />  
-        </Route>
+      <Switch> 
+        <PrivateRoute exact path='/' component={Home} />
+        <PrivateRoute path='/friends' component={Friends} />
+        <PrivateRoute path='/settings' component={Settings} />
 
         <Route path='/login'>
           <Login />  
@@ -32,16 +32,8 @@ export default function App() {
           <Register />  
         </Route>
 
-        <Route path='/friends'>
-          <Friends />  
-        </Route>
-
         <Route path='/search'>
           <Search />  
-        </Route>
-
-        <Route path='/settings'>
-          <Settings />
         </Route>
 
         <Route path='/profile'>
@@ -54,7 +46,7 @@ export default function App() {
 
       </Switch>
       <Footer />
+      </AuthProvider>
     </Router>
-    </AuthProvider>
-  );
+    );
 }

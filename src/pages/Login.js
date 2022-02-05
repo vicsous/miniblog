@@ -1,7 +1,8 @@
 import '../styles/pages/Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useAuth } from '../contexts/AuthContext';
 
 const LoginSchema = Yup.object().shape({
     password: Yup.string()
@@ -11,18 +12,30 @@ const LoginSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
   });
  
-export default function Login () {    
+export default function Login () {
+    const { login } = useAuth();
+
+    const history = useHistory()
+
     return (
         <div className="login">
             <Formik
                 initialValues={{ email: '', password: '' }}
                 validationSchema={LoginSchema}
                 onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
-                    setSubmitting(false);
-                }, 400);
-                }}
+                    setTimeout(() => {
+                        login(values.email, values.password)
+                        .then((x) => {
+                            alert(JSON.stringify(x, null, 2));
+                            setSubmitting(false);
+                            history.push('/');
+                        })
+                        .catch(e => {
+                            alert(e.message)
+                            setSubmitting(false);
+                        })
+                    }, 400);
+                    }}
             >
                 {({ isSubmitting }) => (
                 <Form className="loginForm">

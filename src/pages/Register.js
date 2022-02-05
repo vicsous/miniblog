@@ -1,10 +1,12 @@
 import '../styles/pages/Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useAuth } from '../contexts/AuthContext';
 
 const LoginSchema = Yup.object().shape({
+    password2:  Yup.string()
+        .oneOf([Yup.ref('password'), null], 'Passwords must match'),
     password: Yup.string()
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
@@ -25,16 +27,25 @@ const LoginSchema = Yup.object().shape({
 export default function Register () {  
     const { signup } = useAuth();
 
+    const history = useHistory()
+
     return (
         <div className="login">
             <Formik
-                initialValues={{ name: '', username: '', email: '', password: '' }}
+                initialValues={{ name: '', username: '', email: '', password: '', password2: '' }}
                 validationSchema={LoginSchema}
                 onSubmit={(values, { setSubmitting }) => {
                 setTimeout(() => {
-                    signup(values);
-                    alert(JSON.stringify(values, null, 2));
-                    setSubmitting(false);
+                    signup(values.email, values.password)
+                    .then((x) => {
+                        alert(JSON.stringify(x, null, 2));
+                        setSubmitting(false);
+                        history.push('/');
+                    })
+                    .catch(e => {
+                        alert(e.message)
+                        setSubmitting(false);
+                    })
                 }, 400);
                 }}
             >
@@ -91,7 +102,20 @@ export default function Register () {
                         className="errorMsg"
                         name="password"
                         component="div"
-                        />
+                    />
+
+                    {/* Senha confirmação */}
+                    <Field 
+                        className="loginTextInput"
+                        name="password2"
+                        placeholder="Senha"
+                        type="password"
+                    />
+                    <ErrorMessage
+                        className="errorMsg"
+                        name="password2"
+                        component="div"
+                    />
                     <button
                         type="submit"
                         className="loginBtn" 

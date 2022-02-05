@@ -1,16 +1,26 @@
 import '../styles/components/Header.css';
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 
 export default function Menu({open, setOpen}) {
+    const { currentUser, logout } = useAuth();
+
+    function handleLogout() {
+        logout()
+        setOpen(!open)
+    }
+    
     return (
         <div className="menu">
+            {currentUser?
+            <>
             <Link onClick={() => setOpen(!open)} to='/profile'>
                 <div className="item">
                     <img alt="avatar" className="avatar" src="https://www.w3schools.com/howto/img_avatar.png"/>
                     
                     <div className="info">
-                        <strong className="name">João Silva</strong>
-                        <p className="username">@josilva</p>
+                        <strong className="name">{currentUser && currentUser.email}</strong>
+                        <p className="username">{currentUser && currentUser.email}</p>
                     </div>
                 </div>
             </Link>
@@ -62,7 +72,7 @@ export default function Menu({open, setOpen}) {
                 </button>
             </Link>
 
-            <Link onClick={() => setOpen(!open)} to='/logout'>
+            <Link onClick={handleLogout} to='/login'>
                 <button className="item">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -70,6 +80,27 @@ export default function Menu({open, setOpen}) {
                     <p className="button">Sair</p>
                 </button>
             </Link>
+            </>
+            :
+            <>
+                <Link onClick={handleLogout} to='/login'>
+                    <button className="item">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                        </svg>
+                        <p className="button">Entrar</p>
+                    </button>
+                </Link>
+                <Link onClick={handleLogout} to='/register'>
+                    <button className="item">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                        </svg>
+                        <p className="button">Cadastrar</p>
+                    </button>
+                </Link>
+            </>
+            }
         </div>
         )
 }

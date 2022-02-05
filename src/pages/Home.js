@@ -1,16 +1,10 @@
 import '../styles/pages/Home.css';
+import NewPost from '../components/NewPost';
 
 export default function Home () {
     return (
         <div className="feed">
-            <div className="newPostField">
-                <textarea maxLength={140} className="postInput" placeholder="Escreva uma nova postagem..."></textarea>
-                <div className="newPostBottom">
-                    <p className="postCharCounter">15/140</p>
-                    <button className="publishBtn">Publicar</button>
-                </div>
-            </div>
-            
+            <NewPost />
             <button className="fetchMore">
                 Carregar novas postagens
             </button>
