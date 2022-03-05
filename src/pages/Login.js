@@ -28,7 +28,7 @@ export default function Login() {
               .then((x) => {
                 alert(JSON.stringify(x, null, 2));
                 setSubmitting(false);
-                history.push("/");
+                history.push("/home");
               })
               .catch((e) => {
                 alert(e.message);

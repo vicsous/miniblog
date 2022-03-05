@@ -20,7 +20,12 @@ import Footer from "./components/Footer.js";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthProvider } from "./contexts/AuthContext";
 
+import { useAuth } from "../contexts/AuthContext";
+
+
 export default function App() {
+    const { currentUser } = useAuth();
+
   return (
     <Router>
       <AuthProvider>
@@ -47,7 +52,7 @@ export default function App() {
           </Route>
 
           <Route exact path="/">
-            <Landing />
+            { currentUser ? <Redirect to="/home" /> : <Landing /> }
           </Route>
 
           <Route path="*">
