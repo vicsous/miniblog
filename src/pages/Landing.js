@@ -12,6 +12,7 @@ export default function Landing() {
             <button className="loginBtn">
               Entrar
             </button>
+             <h1>Ou<h1>
             <button className="loginBtn">
               Cadastrar-se
             </button>
