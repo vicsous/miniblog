@@ -20,17 +20,13 @@ import Footer from "./components/Footer.js";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthProvider } from "./contexts/AuthContext";
 
-import { useAuth } from "../contexts/AuthContext";
-
-
 export default function App() {
-    const { currentUser } = useAuth();
-
   return (
     <Router>
       <AuthProvider>
         <Header />
         <Switch>
+          <PrivateRoute exact path="/" component={Landing} />
           <PrivateRoute path="/home" component={Home} />
           <PrivateRoute path="/friends" component={Friends} />
           <PrivateRoute path="/settings" component={Settings} />
@@ -49,10 +45,6 @@ export default function App() {
 
           <Route path="/profile">
             <Profile />
-          </Route>
-
-          <Route exact path="/">
-            { currentUser ? <Redirect to="/home" /> : <Landing /> }
           </Route>
 
           <Route path="*">
