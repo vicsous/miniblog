@@ -46,8 +46,8 @@ export default function App() {
             <Profile />
           </Route>
 
-          <Route path="/teste">
-            <h1>Teste</h1>
+          <Route exact path="/">
+            <Landing />
           </Route>
 
           <Route path="*">
