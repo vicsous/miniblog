@@ -50,7 +50,7 @@ export default function App() {
             <Profile />
           </Route>
 
-          <Route path="/home">
+          <Route path="/teste">
             <Landing />
           </Route>
 
