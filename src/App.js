@@ -50,7 +50,7 @@ export default function App() {
             <Profile />
           </Route>
 
-          <Route exact path="/home">
+          <Route path="/home">
             <Landing />
           </Route>
 
