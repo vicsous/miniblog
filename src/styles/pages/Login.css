@@ -37,6 +37,10 @@
     font-bold
 }
 
+.or {
+  @apply text-white  
+}
+
 .passFgt{
     @apply text-gray-400
 }
