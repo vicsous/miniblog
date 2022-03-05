@@ -6,10 +6,10 @@
   bg-gradient-to-r from-gray-900 to-black;
 }
 
-.landingText{
+.landingText {
   min-height: 50vh;
   @apply flex flex-col
-
+  bg-red-500;
 }
 
 .landingTitle {
@@ -18,7 +18,7 @@
   font-bold;
 }
 
-.landingSubtitle{
+.landingSubtitle {
   @apply text-white
   text-xl;
 }
