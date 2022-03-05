@@ -21,10 +21,11 @@ export default function App() {
       <AuthProvider>
         <Header />
         <Switch>
-          <PrivateRoute exact path="/" component={Landing} />
           <PrivateRoute path="/home" component={Home} />
           <PrivateRoute path="/friends" component={Friends} />
           <PrivateRoute path="/settings" component={Settings} />
+
+          <Route exact path="/" component={Landing} />
 
           <Route path="/login">
             <Login />
