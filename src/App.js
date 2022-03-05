@@ -55,7 +55,7 @@ export default function App() {
           </Route>
 
           <Route exact path="/">
-            currentUser ? <Redirect to="/login" /> : <Landing />
+            currentUser ? <Landing /> : <Redirect to="/login" />
           </Route>
         </Switch>
         <Footer />
