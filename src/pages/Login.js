@@ -39,7 +39,7 @@ export default function Login() {
       >
         {({ isSubmitting }) => (
           <Form className="loginForm">
-            <h1 className="loginPageTitle">Teste</h1>
+            <h1 className="loginPageTitle">Login</h1>
             {/* Email */}
             <Field
               name="email"
