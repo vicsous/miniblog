@@ -47,7 +47,7 @@ export default function App() {
           </Route>
 
           <Route path="/teste">
-            <Landing />
+            <h1>Teste</h1>
           </Route>
 
           <Route path="*">
