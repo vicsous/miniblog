@@ -30,7 +30,7 @@ export default function App() {
       <AuthProvider>
         <Header />
         <Switch>
-          <PrivateRoute exact path="/home" component={Home} />
+          <PrivateRoute exact path="/" component={Home} />
           <PrivateRoute path="/friends" component={Friends} />
           <PrivateRoute path="/settings" component={Settings} />
 
@@ -50,12 +50,12 @@ export default function App() {
             <Profile />
           </Route>
 
-          <Route path="*">
-            <h1>Page not found</h1>
+          <Route exact path="/home">
+            <Landing />
           </Route>
 
-          <Route exact path="/">
-            currentUser ? <Landing /> : <Redirect to="/login" />
+          <Route path="*">
+            <h1>Page not found</h1>
           </Route>
         </Switch>
         <Footer />
