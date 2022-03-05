@@ -13,6 +13,7 @@ import Landing from "./pages/Landing.js";
 import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 import PrivateRoute from "./components/PrivateRoute";
+import PublicRoute from "./components/PublicRoute";
 import { AuthProvider } from "./contexts/AuthContext";
 
 export default function App() {
@@ -25,23 +26,12 @@ export default function App() {
           <PrivateRoute path="/friends" component={Friends} />
           <PrivateRoute path="/settings" component={Settings} />
 
-          <Route exact path="/" component={Landing} />
+          <PublicRoute exact path="/" component={Landing} />
+          <PublicRoute path="/login" component={Login} />
+          <PublicRoute path="/register" component={Register} />
 
-          <Route path="/login">
-            <Login />
-          </Route>
-
-          <Route path="/register">
-            <Register />
-          </Route>
-
-          <Route path="/search">
-            <Search />
-          </Route>
-
-          <Route path="/profile">
-            <Profile />
-          </Route>
+          <Route path="/search" component={Search} />
+          <Route path="/profile" component={Profile} />
 
           <Route path="*">
             <h1>Page not found</h1>
