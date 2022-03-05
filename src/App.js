@@ -26,7 +26,7 @@ export default function App() {
       <AuthProvider>
         <Header />
         <Switch>
-          <PrivateRoute exact path="/" component={Home} />
+          <PrivateRoute path="/home" component={Home} />
           <PrivateRoute path="/friends" component={Friends} />
           <PrivateRoute path="/settings" component={Settings} />
 
