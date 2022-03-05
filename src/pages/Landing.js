@@ -14,7 +14,7 @@ export default function Landing() {
               Entrar
             </button>
           </Link>
-          <h1>Ou</h1>
+          <h1 className="or">Ou</h1>
           <Link to='/register'>
             <button className="loginBtn">
               Cadastrar-se
