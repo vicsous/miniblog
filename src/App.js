@@ -1,5 +1,12 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
+
+import { useAuth } from "../contexts/AuthContext";
 
 import Home from "./pages/Home.js";
 import Login from "./pages/Login.js";
@@ -16,6 +23,8 @@ import PrivateRoute from "./components/PrivateRoute";
 import { AuthProvider } from "./contexts/AuthContext";
 
 export default function App() {
+  const { currentUser } = useAuth();
+
   return (
     <Router>
       <AuthProvider>
@@ -25,8 +34,8 @@ export default function App() {
           <PrivateRoute path="/friends" component={Friends} />
           <PrivateRoute path="/settings" component={Settings} />
 
-          <Route path="/">
-            <Landing />
+          <Route exact path="/">
+            currentUser ? <Redirect to="/login" /> : <Landing />
           </Route>
 
           <Route path="/login">
