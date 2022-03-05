@@ -9,6 +9,8 @@
 .landingText {
   min-height: 50vh;
   @apply flex flex-col
+  m-auto
+  justify-between
   bg-red-500;
 }
 
