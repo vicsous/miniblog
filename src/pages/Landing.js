@@ -8,7 +8,7 @@ export default function Landing() {
         <h1 className="landingTitle">Seja bem vindo!</h1>
         <h1 className="landingSubtitle">Entre ou cadastre-se em nossa rede.</h1>
       </div>
-      <div className="landingText">
+      <div className="landingBtns">
             <button className="loginBtn">
               Submit
             </button>
