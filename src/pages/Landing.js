@@ -9,10 +9,10 @@ export default function Landing() {
         <h1 className="landingSubtitle">Entre ou cadastre-se em nossa rede.</h1>
       </div>
       <div className="landingText">
-            <button type="submit" className="loginBtn" disabled={isSubmitting}>
+            <button className="loginBtn">
               Submit
             </button>
-            <button type="submit" className="loginBtn" disabled={isSubmitting}>
+            <button className="loginBtn">
               Submit
             </button>
       </div>
