@@ -6,8 +6,6 @@ import {
   Redirect
 } from "react-router-dom";
 
-import { useAuth } from "../contexts/AuthContext";
-
 import Home from "./pages/Home.js";
 import Login from "./pages/Login.js";
 import Register from "./pages/Register.js";
@@ -23,8 +21,6 @@ import PrivateRoute from "./components/PrivateRoute";
 import { AuthProvider } from "./contexts/AuthContext";
 
 export default function App() {
-  const { currentUser } = useAuth();
-
   return (
     <Router>
       <AuthProvider>
