@@ -10,10 +10,10 @@ export default function Landing() {
       </div>
       <div className="landingBtns">
             <button className="loginBtn">
-              Submit
+              Entrar
             </button>
             <button className="loginBtn">
-              Submit
+              Cadastrar-se
             </button>
       </div>
     </div>
