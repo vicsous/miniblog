@@ -1,4 +1,4 @@
-.login {
+.landing {
   min-height: 100vh;
   @apply flex flex-col
   space-y-2
@@ -6,46 +6,8 @@
   bg-gradient-to-r from-gray-900 to-black;
 }
 
-.loginForm {
-  @apply border border-gray-600
-  p-24
-  flex flex-col
-  m-auto
-  justify-between;
-}
-
-.loginTextInput {
-  @apply form-input
-  text-white
-  bg-transparent
-  rounded-lg
-  mb-3;
-}
-
-.loginBtn {
-  @apply bg-blue-500
-  hover:bg-blue-700
-  text-white
-  font-bold
-  py-2 px-4
-  rounded-full;
-}
-
-.loginPageTitle {
+.landingTitle {
   @apply text-white
   mb-6 text-3xl
   font-bold;
-}
-
-.passFgt {
-  @apply text-gray-400;
-}
-
-.loginLinks {
-  @apply flex flex-col
-  pt-4 text-center;
-}
-
-.errorMsg {
-  @apply mb-3 text-white;
 }
