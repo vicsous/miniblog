@@ -11,6 +11,7 @@
   @apply flex flex-col
   text-center
   justify-center
+  items-center
   bg-red-500;
 }
 
