@@ -9,13 +9,17 @@ export default function Landing() {
         <h1 className="landingSubtitle">Entre ou cadastre-se em nossa rede.</h1>
       </div>
       <div className="landingBtns">
+          <Link to='/login'>
             <button className="loginBtn">
               Entrar
             </button>
-             <h1>Ou</h1>
+          </Link>
+          <h1>Ou</h1>
+          <Link to='/register'>
             <button className="loginBtn">
               Cadastrar-se
             </button>
+          </Link>
       </div>
     </div>
   );
