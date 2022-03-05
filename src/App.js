@@ -22,16 +22,15 @@ export default function App() {
       <AuthProvider>
         <Header />
         <Switch>
-          <PrivateRoute path="/home" component={Home} />
           <PrivateRoute path="/friends" component={Friends} />
+          <PrivateRoute path="/home" component={Home} />
+          <PrivateRoute path="/search" component={Search} />
           <PrivateRoute path="/settings" component={Settings} />
+          <PrivateRoute path="/profile" component={Profile} />
 
           <PublicRoute exact path="/" component={Landing} />
           <PublicRoute path="/login" component={Login} />
           <PublicRoute path="/register" component={Register} />
-
-          <Route path="/search" component={Search} />
-          <Route path="/profile" component={Profile} />
 
           <Route path="*">
             <h1>Page not found</h1>
