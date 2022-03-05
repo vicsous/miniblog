@@ -34,10 +34,6 @@ export default function App() {
           <PrivateRoute path="/friends" component={Friends} />
           <PrivateRoute path="/settings" component={Settings} />
 
-          <Route exact path="/">
-            currentUser ? <Redirect to="/login" /> : <Landing />
-          </Route>
-
           <Route path="/login">
             <Login />
           </Route>
@@ -56,6 +52,10 @@ export default function App() {
 
           <Route path="*">
             <h1>Page not found</h1>
+          </Route>
+
+          <Route exact path="/">
+            currentUser ? <Redirect to="/login" /> : <Landing />
           </Route>
         </Switch>
         <Footer />
