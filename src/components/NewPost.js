@@ -4,6 +4,7 @@ import '../styles/pages/Home.css';
 import { addDoc, collection } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 import { useAuth } from '../contexts/AuthContext';
+import {createNewPost} from '../actions/userActions';
 
 export default function NewPost () {
     const { currentUser } = useAuth()
@@ -27,7 +28,7 @@ export default function NewPost () {
                 validationSchema={LoginSchema}
                 onSubmit={(values, actions) => {
                     setTimeout(() => {
-                        createPost(values.newpost)
+                        createNewPost(values.newpost)
                         .then(() => {
                             alert(JSON.stringify(values, null, 2))
                             actions.setSubmitting(false)

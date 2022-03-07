@@ -1,6 +1,7 @@
 import '../styles/components/Header.css';
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import { auth } from '../firebase';
 
 export default function Menu({open, setOpen}) {
     const { currentUser, logout } = useAuth();
@@ -14,9 +15,10 @@ export default function Menu({open, setOpen}) {
         <div className="menu">
             {currentUser?
             <>
+                {alert(JSON.stringify(auth.currentUser, null, 4))}
             <Link onClick={() => setOpen(!open)} to='/profile'>
                 <div className="item">
-                    <img alt="avatar" className="avatar" src="https://www.w3schools.com/howto/img_avatar.png"/>
+                    <img alt="avatar" className="avatar" src="https://st3.depositphotos.com/1767687/16607/v/600/depositphotos_166074422-stock-illustration-default-avatar-profile-icon-grey.jpg"/>
                     
                     <div className="info">
                         <strong className="name">{currentUser && currentUser.email}</strong>
