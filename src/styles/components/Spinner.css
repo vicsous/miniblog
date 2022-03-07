@@ -1,0 +1,8 @@
+.spinnerBg {
+    height: 100vh;
+    @apply bg-gradient-to-r from-black to-gray-900 text-white flex flex-col
+}
+
+.spinner {
+    @apply animate-spin h-24 w-24 text-blue-500
+}
