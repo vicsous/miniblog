@@ -1,39 +1,47 @@
-import React, { useContext, useState, useEffect } from "react"
+import { createContext, useContext, useState, useEffect } from "react"
 import Spinner from "../components/Spinner"
 
-const AuthContext = React.createContext()
+const AuthContext = createContext()
 
 export function useAuth() {
   return useContext(AuthContext)
 }
 
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState()
+  const [currentUser, setUser] = useState()
   const [loading, setLoading] = useState(true)
 
-  function signup(email, password) {
-    return alert('signup')
-  }
-
   function login(email, password) {
-    return alert('login')
+    alert('User logged!')
+    return setUser({ username: '@teste', email: email, name: 'Teste'})
   }
 
   function logout() {
-    return alert('logout')
+    alert('User logged out!')
+    return setUser()
+  }
+
+  function signup() {
+    alert('new user created')
+    return setUser()
   }
 
   useEffect(() => {
-    setCurrentUser(user)
-    setLoading(false)
-    return unsubscribe
+    setLoading(false);
+    alert('teste');
+
+    return function unsubscribe () {
+      if (!currentUser) {
+        alert('user not logged');
+      }
+    }
   }, [])
 
   const value = {
     currentUser,
     login,
-    signup,
-    logout
+    logout,
+    signup
   }
 
   return (

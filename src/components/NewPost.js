@@ -2,10 +2,9 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import '../styles/pages/Home.css';
 import { useAuth } from '../contexts/AuthContext';
-import { createNewPost } from '../actions/userActions';
 
 export default function NewPost () {
-    const { currentUser } = useAuth()
+    const { login } = useAuth()
     const PostSchema = Yup.object().shape({
         newpost: Yup.string()
         .min(1, 'Too Short!')
@@ -19,7 +18,7 @@ export default function NewPost () {
                 validationSchema={PostSchema}
                 onSubmit={(values, actions) => {
                     setTimeout(() => {
-                        createNewPost(values.newpost)
+                        login()
                         .then(() => {
                             alert(JSON.stringify(values, null, 2))
                             actions.setSubmitting(false)

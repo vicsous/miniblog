@@ -1,7 +1,9 @@
 import '../styles/pages/Home.css';
 import NewPost from '../components/NewPost';
+import { useAuth } from "../contexts/AuthContext";
 
 export default function Home () {
+    const { currentUser } = useAuth();
     return (
         <div className="feed">
             <NewPost />
@@ -14,8 +16,8 @@ export default function Home () {
                 <button className="poster">
                     <img alt="postAvatar" className="postAvatar" src="https://www.w3schools.com/howto/img_avatar.png"/>
                     <div className="posterInfo">
-                        <strong className="name">João Silva</strong>
-                        <p className="username">@josilva</p>
+                        <strong className="name">{currentUser.name}</strong>
+                        <p className="username">{currentUser.username}</p>
                     </div>
                 </button>
 
@@ -50,8 +52,8 @@ export default function Home () {
                 <button className="poster">
                     <img alt="postAvatar" className="postAvatar" src="https://www.w3schools.com/howto/img_avatar.png"/>
                     <div className="posterInfo">
-                        <strong className="name">João Silva</strong>
-                        <p className="username">@josilva</p>
+                        <strong className="name">{currentUser.name}</strong>
+                        <p className="username">{currentUser.username}</p>
                     </div>
                 </button>
 
