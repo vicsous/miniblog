@@ -23,20 +23,9 @@ export default function Login() {
         initialValues={{ email: "", password: "" }}
         validationSchema={LoginSchema}
         onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            login(values.email, values.password)
-              .then((x) => {
-                alert(JSON.stringify(x, null, 2));
-                setSubmitting(false);
-                history.push("/home");
-              })
-              .catch((e) => {
-                alert(e.message);
-                setSubmitting(false);
-              });
-          }, 400);
-        }}
-      >
+          login(values.email, values.password);
+          setSubmitting(false);
+        }}>
         {({ isSubmitting }) => (
           <Form className="loginForm">
             <h1 className="loginPageTitle">Login</h1>

@@ -36,7 +36,7 @@ export default function Register () {
                 validationSchema={LoginSchema}
                 onSubmit={(values, { setSubmitting }) => {
                 setTimeout(() => {
-                    signup(values.email, values.password)
+                    signup(values.email, values.username, values.password)
                     .then((x) => {
                         alert(JSON.stringify(x, null, 2));
                         setSubmitting(false);

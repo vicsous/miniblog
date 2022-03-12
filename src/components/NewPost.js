@@ -4,12 +4,12 @@ import '../styles/pages/Home.css';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function NewPost () {
-    const { login } = useAuth()
+    const { login } = useAuth();
     const PostSchema = Yup.object().shape({
         newpost: Yup.string()
-        .min(1, 'Too Short!')
-        .max(140, 'Too Long!')
-        .required('Required'),
+            .min(1, 'Too Short!')
+            .max(140, 'Too Long!')
+            .required('Required'),
     });
 
     return (

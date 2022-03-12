@@ -1,5 +1,7 @@
-import { createContext, useContext, useState, useEffect } from "react"
-import Spinner from "../components/Spinner"
+import { createContext, useContext, useState, useEffect } from "react";
+import axios from "axios";
+import Spinner from "../components/Spinner";
+import { useHistory } from "react-router-dom";
 
 const AuthContext = createContext()
 
@@ -8,12 +10,31 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  const [currentUser, setUser] = useState()
-  const [loading, setLoading] = useState(true)
+  const history = useHistory();
+
+  const [currentUser, setUser] = useState();
+  const [loading, setLoading] = useState(true);
 
   function login(email, password) {
-    alert('User logged!')
-    return setUser({ username: '@teste', email: email, name: 'Teste'})
+    fetch('http://localhost:3001/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'credentials': 'include'
+
+      },
+      body: JSON.stringify({ email: email, password: password })
+    })
+    .then(response => response.json())
+    .then(res => {
+      if (res.success) {
+        localStorage.setItem('refresh_token', res.token);
+        history.push('/home');
+      }
+      else {
+        alert('error')
+      }
+    })
   }
 
   function logout() {
@@ -21,9 +42,19 @@ export function AuthProvider({ children }) {
     return setUser()
   }
 
-  function signup() {
-    alert('new user created')
-    return setUser()
+  function signup(email, username, password) {
+    axios.post('http://localhost:3001/signup', {
+      email: email,
+      username: username,
+      password: password
+    })
+    .then(() => { 
+      alert(`User "${username.toLowerCase()}" created`)
+      return setUser({ username: username, email: email, name: username})
+    })
+    .catch(e => {
+      alert(e.message)
+    })
   }
 
   useEffect(() => {
