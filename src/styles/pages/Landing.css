@@ -1,0 +1,43 @@
+.landing {
+  min-height: 100vh;
+  @apply flex flex-col
+  space-y-2
+  py-4 px-4
+  bg-gradient-to-r from-gray-900 to-black;
+}
+
+.landingText {
+  min-height: 50vh;
+  @apply flex flex-col
+  text-center
+  justify-center
+  items-center
+  bg-transparent;
+}
+
+.landingBtns {
+  min-height: 20vh;
+  @apply flex flex-col
+  items-center
+  bg-transparent;
+}
+
+.landingTitle {
+  @apply text-white
+  mb-6 text-3xl
+  font-bold;
+}
+
+.landingSubtitle {
+  @apply text-white
+  text-xl;
+}
+
+.loginBtn{
+    @apply bg-blue-500
+    hover:bg-blue-700
+    text-white
+    font-extrabold
+    py-4 px-6
+    rounded-full
+}

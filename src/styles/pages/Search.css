@@ -1,0 +1,103 @@
+.search {
+    min-height: 100vh;
+    @apply flex flex-col
+    space-y-2
+    py-4 px-4
+    bg-gradient-to-r from-gray-900 to-black
+}
+
+.searchPageTitle {
+    @apply text-white
+    mb-6 text-3xl
+    font-bold
+}
+
+.searchBtn {
+    @apply bg-blue-500
+    hover:bg-blue-700
+    text-white
+    font-bold
+    py-2 px-4
+    rounded-full
+}
+
+.searchInput {
+    @apply form-input
+    bg-transparent
+    text-white
+    mr-4
+    w-full
+    rounded-lg
+}
+
+.searchForm {
+    @apply flex
+    m-auto
+    w-full
+}
+
+.searchType {
+    @apply
+    border border-gray-600
+    p-4
+    hover:bg-gradient-to-r from-black to-gray-900
+    w-1/2
+    text-white
+}
+
+.searchTypeToggled {
+    @apply
+    border border-gray-600
+    p-4
+    bg-gradient-to-r from-sky-400 to-sky-600
+    w-1/2
+    text-white
+}
+
+
+.searchType:first-child, .searchTypeToggled:first-child {
+    @apply border-r-0
+}
+
+.searchFilter {
+    @apply
+    border border-gray-600
+    p-4
+    flex justify-between
+    hover:bg-gradient-to-r from-black to-gray-900
+    w-full
+    text-white
+}
+
+.resultTitle {
+    @apply text-white
+    text-xl
+}
+
+.serchedTerm {
+    @apply font-bold
+}
+
+.applyFilterBtn {
+    @apply bg-blue-500
+    hover:bg-blue-700
+    text-white
+    font-bold
+    mt-2
+    py-2 px-4
+    rounded-full
+}
+
+.filterLabel {
+    @apply text-white
+}
+
+.filterInput {
+    @apply form-input
+    bg-transparent
+    text-white
+    mr-4
+    w-full
+    rounded-lg
+    mb-2
+}

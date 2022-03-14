@@ -1,0 +1,93 @@
+.feed {
+    @apply flex flex-col
+    space-y-2 text-white
+    py-4 px-4
+    bg-gradient-to-r from-gray-900 to-black
+}
+
+.feedPost {
+    @apply 
+    bg-black 
+    w-full
+    rounded-lg 
+    p-5
+    text-left
+    bg-gradient-to-r from-black to-gray-900 
+    border border-gray-600
+} 
+
+.postText {
+    @apply mb-4
+}
+
+.postMiddle {
+    @apply flex justify-between mt-6
+}
+
+.postBottom {
+    @apply flex justify-between mt-4
+}
+
+.postMenuBtn, .likeBtn {
+    @apply flex
+}
+
+.fetchMore {
+    @apply
+    border border-gray-600
+    p-4
+    hover:bg-gradient-to-r from-black to-gray-900
+}
+
+.newPostField {
+    @apply bg-black 
+    w-full
+    rounded-lg
+    p-5
+    bg-gradient-to-r from-black to-gray-900
+    border border-sky-600
+}
+
+.publishBtn {
+    @apply bg-blue-500
+    hover:bg-blue-700
+    text-white
+    font-bold
+    py-2 px-4
+    rounded-full
+}
+
+.postInput {
+    @apply resize-none
+    form-input
+    w-full text-black
+    border-0
+    bg-transparent
+    text-white
+    rounded-lg
+    h-24
+}
+
+.newPostMiddle {
+    @apply flex justify-between
+}
+
+.newPostBottom {
+    @apply flex items-center justify-between
+}
+
+.poster {
+    @apply flex items-center to-gray-900 w-full rounded-lg  hover:bg-gray-500 mb-2
+}
+
+.posterInfo {
+    @apply flex flex-col justify-between items-start
+}
+
+.postAvatar {
+    @apply bg-white rounded-full w-12 h-12 bg-blue-700 mr-2
+}
+
+.name, .username {
+    @apply text-lg
+}
